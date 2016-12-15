@@ -4,7 +4,7 @@ Handle specify functions that with a trailing `!`
 defmodule MyErr do
   def init do
     try do
-      File.read! "crawler.jsY"
+      File.read! "crawler.jsY" # that file not exist
     rescue
       RuntimeError -> "hehe!"
       File.Error -> "file error!"
