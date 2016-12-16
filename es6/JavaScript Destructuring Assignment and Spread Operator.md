@@ -119,3 +119,20 @@ c // "l"
 d // "l"
 e // "o"
 ```
+
+## 复制数组
+##### ES5
+```js
+var arr = [1,2,3]
+var clone = arr.slice()
+var clone = arr.concat()
+```
+
+##### ES6
+```js
+var [...clone] = arr;
+```
+
+[ECMAScript 6 入门](http://es6.ruanyifeng.com/#docs/destructuring)
+
+[Undefined Rants](http://yang-wei.github.io/blog/2016/01/15/javascript-destructuring-assignment-and-spread-operator/)
