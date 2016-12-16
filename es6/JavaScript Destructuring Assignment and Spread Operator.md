@@ -20,7 +20,7 @@ var {name, things: [, ...things]} = {name: "rupert", things: [3, "hat", "clothes
 
 ## 这到底有什么用？
 
-#### 假如我们读取一个深嵌套结构的数据，ES5:
+### 假如我们读取一个深嵌套结构的数据，ES5:
 ```js
 var data = {
   body: {
@@ -45,21 +45,21 @@ ES6 就一句:
 var {body: {result: {title, list, data: {description}}}} = data
 
 ```
-#### Arguments 和 数组的转换
+### Arguments 和 数组的转换
 
-##### Apply
-###### ES5:
+#### Apply
+##### ES5:
 ```js
 var arr = [1,2,3,4]
 Math.max.apply({}, arr)
 ```
-###### ES6:
+##### ES6:
 ```js
 var arr = [1,2,3,4]
 Math.max(...arr)
 Math.max(8,...[1,2,3,4],10,6)
 ```
-##### arguments
+#### arguments
 
 ```js
 function add([x, y], {name}){
@@ -68,11 +68,11 @@ function add([x, y], {name}){
 add([1, 2], {name: "rupert"}); // rupert12 
 ```
 
-###### 这是一个数据解构的好例子：
+##### 这是一个数据解构的好例子：
 ```js
 [[1, 2], [3, 4]].map(([a, b]) => a + b);
 ```
-###### arguments 可以是一个表达式：
+### arguments 可以是一个表达式：
 ```js
 function move({x = 0, y = 0} = {}) {
   return [x, y];
