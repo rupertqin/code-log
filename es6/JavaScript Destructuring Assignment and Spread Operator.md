@@ -47,23 +47,75 @@ var {body: {result: {title, list, data: {description}}}} = data
 ```
 #### Arguments 和 数组的转换
 
-###### Apply
-ES5:
+##### Apply
+###### ES5:
 ```js
 var arr = [1,2,3,4]
 Math.max.apply({}, arr)
 ```
-ES6:
+###### ES6:
 ```js
 var arr = [1,2,3,4]
 Math.max(...arr)
 Math.max(8,...[1,2,3,4],10,6)
 ```
-###### arguments
+##### arguments
 
+```js
+function add([x, y], {name}){
+  return name + x + y;
+}
+add([1, 2], {name: "rupert"}); // rupert12 
+```
 
+###### 这是一个数据解构的好例子：
+```js
+[[1, 2], [3, 4]].map(([a, b]) => a + b);
+```
+###### arguments 可以是一个表达式：
+```js
+function move({x = 0, y = 0} = {}) {
+  return [x, y];
+}
+
+move({x: 3, y: 8}); // [3, 8]
+move({x: 3}); // [3, 0]
+move({}); // [0, 0]
+move(); // [0, 0]
+```
+###### 注意差别：
+```js
+function move({x, y} = { x: 0, y: 0 }) {
+  return [x, y];
+}
+
+move({x: 3, y: 8}); // [3, 8]
+move({x: 3}); // [3, undefined]
+move({}); // [undefined, undefined]
+move(); // [0, 0]
+```
 ## 默认值
 
 ```js
 let [x = 1, y = x, z] = [, , 7];     // x=1; y=1; z=7
+```
+
+## 杂交
+
+#### 对象 ＝ 数组
+```js
+var arr = [1, 2, 3, 4, 5, 6];
+var {0 : first, [arr.length - 1] : last} = arr;
+first // 1
+last // 6
+```
+
+#### 数组 = 字符
+```js
+const [a, b, c, d, e] = 'hello';
+a // "h"
+b // "e"
+c // "l"
+d // "l"
+e // "o"
 ```
