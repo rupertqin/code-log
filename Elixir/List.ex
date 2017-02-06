@@ -2,7 +2,7 @@
 # length
 l = [1,2,3,4]
 length(l)
-#=> 3
+#=> 4
 
 # push
 l = List.insert_at(l, -1, 5)
