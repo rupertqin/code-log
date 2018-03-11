@@ -19,13 +19,7 @@ var cat = {
   }
 }
 ```
-    
-## callback 函数的this指向， 如 click，本身已经绑定了 context, 所以最好不用 arrow function
-```js
-element.onclick = function(){
-  alert(this); // element
-}
-```
+
 
 # this 指向为动态绑定，也叫运行时绑定
 ## 基本规则一： this 指向最终调用它的对象
@@ -40,9 +34,12 @@ var obj1 = {
 }  
 var obj2 = {  
     a : 1,  
-    obj1 : obj1  
-}  
-obj2.obj1.foo();    //结果：2
+    obj1 : obj1,
+    foo : foo
+} 
+
+obj2.foo()  // 1
+obj2.obj1.foo();    // 2
 foo2 = obj2.obj1.foo
 foo2()   // undefined
 ```
@@ -60,4 +57,12 @@ function doFoo(fn){
     fn();  
 }  
 doFoo(obj1.foo); // undefined
+```
+
+## 异步调用 callback 函数的this指向， 如 click，本身已经绑定了 context, 所以最好不用 arrow function
+```js
+element.onclick = obj2.foo  // undefined
+element.onclick = function(e) {
+  obj2.foo()  // 1 
+}
 ```
