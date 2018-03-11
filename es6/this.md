@@ -47,8 +47,17 @@ foo2 = obj2.obj1.foo
 foo2()   // undefined
 ```
 
-## 在 setTimeout 下丢失：
+## 在 setTimeout 中丢失：
 ```js
 // 接以上代码
 setTimeout(obj2.obj1.foo) // => undefined
+```
+
+## 在参数传递中丢失（setTimeout中也是传参丢失）：
+```js
+// 接以上代码
+function doFoo(fn){
+    fn();  
+}  
+doFoo(obj1.foo); // undefined
 ```
