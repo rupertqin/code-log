@@ -66,3 +66,6 @@ element.onclick = function(e) {
   obj2.foo()  // 1 
 }
 ```
+
+## 用 new 创建新对象时
+ 
