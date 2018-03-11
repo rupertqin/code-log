@@ -67,5 +67,9 @@ element.onclick = function(e) {
 }
 ```
 
+## 绑定过 context 后不能再修改
+
+
+
 ## 用 new 创建新对象时
  
